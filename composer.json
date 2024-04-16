@@ -74,13 +74,27 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "db-drop": "symfony console doctrine:database:drop --force",
+        "db-create": "symfony console doctrine:database:create",
+        "db-migrate": "symfony console doctrine:migrations:migrate --no-interaction",
+        "db-fixtures": "symfony console doctrine:fixtures:load --no-interaction",
+        "db-init": [
+            "@db-create",
+            "@db-migrate",
+            "@db-fixtures"
+        ],
+        "db-reset": [
+            "@db-drop",
+            "@db-init"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@db-init"
         ],
         "post-update-cmd": [
             "@auto-scripts"
@@ -96,6 +110,8 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.5",
+        "fakerphp/faker": "^1.23",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "7.0.*",
         "symfony/css-selector": "7.0.*",

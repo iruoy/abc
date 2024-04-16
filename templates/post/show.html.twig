@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <div class="font-sans">
+            {{ post.body|raw }}
+        </div>
+        <div class="font-sans">
+            <a href="{{ path('app_post_index') }}">Posts</a>
+            <a href="{{ path('app_post_edit', {id: post.id}) }}">Edit</a>
+        </div>
+    </div>
+{% endblock %}

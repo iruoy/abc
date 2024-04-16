@@ -1,3 +1,21 @@
 body {
-    background-color: skyblue;
+    background-color: #102020;
+    color: white;
+    margin: 0;
+}
+
+a, a:visited {
+    color: white;
+}
+
+.container {
+    background-color: #204040;
+    height: 100vh;
+    margin: 0 auto;
+    max-width: 120ch;
+    padding: 1em 2em;
+}
+
+.font-sans {
+    font-family: sans-serif;
 }
