@@ -1,0 +1,11 @@
+parameters:
+    level: 9
+
+    paths:
+        - src/
+        - tests/
+
+    checkUninitializedProperties: true
+    checkImplicitMixed: true
+    checkBenevolentUnionTypes: true
+    rememberPossiblyImpureFunctionValues: true

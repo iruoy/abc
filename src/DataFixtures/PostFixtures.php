@@ -13,11 +13,19 @@ class PostFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; ++$i) {
             $body = '';
-            for ($j = 0; $j < rand(3, 7); $j++) {
-                $paragraph = $faker->sentences(rand(1, 10), true);
-                $body .= "<p>$paragraph</p>\n";
+            for ($j = 0; $j < random_int(3, 7); ++$j) {
+                $paragraph = '';
+                for ($k = 0; $k < random_int(3, 7); ++$k) {
+                    if (0 !== $k) {
+                        $paragraph .= ' ';
+                    }
+
+                    $paragraph .= $faker->sentence();
+                }
+
+                $body .= "<p>{$paragraph}</p>\n";
             }
 
             $post = new Post();
