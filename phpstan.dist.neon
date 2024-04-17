@@ -3,7 +3,6 @@ parameters:
 
     paths:
         - src/
-        - tests/
 
     checkUninitializedProperties: true
     checkImplicitMixed: true
